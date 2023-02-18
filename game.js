@@ -28,24 +28,22 @@ document.body.onkeyup = function(e) {
         birdVelocity = FLAP_SPEED
     }
 }
-
 document.getElementById('restart-button').addEventListener('click', function(e) {
     hideEndMenu()
     resetGame()
     loop()
 })
-function increaseScore(){
-    if(birdX > pipeX + PIPE_WIDTH && 
-        (birdY < pipeY + PIPE_GAP || 
-            birdY + BIRD_HEIGHT > pipeY + PIPE_GAP) &&
-            !scored) {
-        score++
-        scoredDiv.innerHTML = score
-        scored = true
+function increaseScore() {
+    // increase now our counter when our flappy passes the pipes
+    if(birdX > pipeX + PIPE_WIDTH && (birdY < pipeY + PIPE_GAP || birdY + BIRD_HEIGHT > pipeY + PIPE_GAP) && !scored) {
+        score++;
+        scoredDiv.innerHTML = score;
+        scored = true;
     }
+
     // reset the flag, if bird passes the pipes
-    if(birdX < pipeX + PIPE_WIDTH) {
-        scored = false
+    if (birdX < pipeX + PIPE_WIDTH) {
+        scored = false;
     }
 }
 function collisionCheck(){
@@ -104,10 +102,10 @@ function resetGame(){
     pipeX = 400
     pipeY = canvas.height - 200
     score = 0
+    scoredDiv.innerHTML = 0
 }
 function endGame(){
     showEndMenu()
-
 }
 function loop(){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -127,7 +125,6 @@ function loop(){
         pipeX = 400
         pipeY = Math.random() * (canvas.height - PIPE_GAP) + PIPE_WIDTH
     }
-    // Apply gravity to the bird and let it move
     birdVelocity += birdAcceleration
     birdY += birdVelocity
 
