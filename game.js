@@ -18,7 +18,7 @@ let birdAcceleration = 0.1
 let pipeX = 400
 let pipeY = canvas.height - 200
 
-let scoredDiv = document.getElementById('score-display')
+let scoreDiv = document.getElementById('score-display')
 let score = 0
 let highScore = 0
 
@@ -34,16 +34,13 @@ document.getElementById('restart-button').addEventListener('click', function(e) 
     loop()
 })
 function increaseScore() {
-    // increase now our counter when our flappy passes the pipes
     if(birdX > pipeX + PIPE_WIDTH && (birdY < pipeY + PIPE_GAP || birdY + BIRD_HEIGHT > pipeY + PIPE_GAP) && !scored) {
-        score++;
-        scoredDiv.innerHTML = score;
-        scored = true;
+        score++
+        scoreDiv.innerHTML = score
+        scored = true
     }
-
-    // reset the flag, if bird passes the pipes
     if (birdX < pipeX + PIPE_WIDTH) {
-        scored = false;
+        scored = false
     }
 }
 function collisionCheck(){
@@ -65,7 +62,7 @@ function collisionCheck(){
         width: PIPE_WIDTH,
         height: canvas.height - pipeY - PIPE_GAP
     }
-    if (birdBox.x + birdBox.width > topPipeBox.x && 
+    if (birdBox.x + birdBox.width > topPipeBox.x &&
         birdBox.x < topPipeBox.x + topPipeBox.width &&
         birdBox.y < topPipeBox.y) {
             return true
@@ -98,20 +95,18 @@ function resetGame(){
     birdY = 50
     birdVelocity = 0
     birdAcceleration = 0.1
-
+    
     pipeX = 400
     pipeY = canvas.height - 200
     score = 0
-    scoredDiv.innerHTML = 0
+    scoreDiv.innerHTML = 0
 }
 function endGame(){
     showEndMenu()
 }
 function loop(){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-
     ctx.drawImage(flappyImg, birdX, birdY)
-
     ctx.fillStyle = '#333'
     ctx.fillRect(pipeX, -100, PIPE_WIDTH, pipeY)
     ctx.fillRect(pipeX, pipeY + PIPE_GAP, PIPE_WIDTH, canvas.height - pipeY)
