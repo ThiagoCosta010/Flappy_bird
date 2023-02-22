@@ -23,23 +23,28 @@ let score = 0
 let highScore = 0
 
 let scored = false
-document.body.onkeyup = function(e) {
-    if(e.code == 'Space') {
+
+document.body.onkeyup = function(e){
+    if(e.code == 'Space'){
         birdVelocity = FLAP_SPEED
     }
 }
-document.getElementById('restart-button').addEventListener('click', function(e) {
+
+document.getElementById('restart-button').addEventListener('click', function() {
     hideEndMenu()
     resetGame()
     loop()
 })
-function increaseScore() {
-    if(birdX > pipeX + PIPE_WIDTH && (birdY < pipeY + PIPE_GAP || birdY + BIRD_HEIGHT > pipeY + PIPE_GAP) && !scored) {
-        score++
-        scoreDiv.innerHTML = score
-        scored = true
+function increaseScore(){
+    if  (birdX > pipeX + PIPE_WIDTH && 
+        (birdY < pipeY + PIPE_GAP || 
+        birdY + BIRD_HEIGHT > pipeY + PIPE_GAP) &&
+        !scored) {
+            score++
+            scoreDiv.innerHTML = score
+            scored = true
     }
-    if (birdX < pipeX + PIPE_WIDTH) {
+    if(birdX < pipeX + PIPE_WIDTH) {
         scored = false
     }
 }
@@ -76,6 +81,7 @@ function collisionCheck(){
         return true
     }
     return false
+
 }
 function hideEndMenu(){
     document.getElementById('end-menu').style.display = 'none'
@@ -95,7 +101,7 @@ function resetGame(){
     birdY = 50
     birdVelocity = 0
     birdAcceleration = 0.1
-    
+
     pipeX = 400
     pipeY = canvas.height - 200
     score = 0
@@ -111,12 +117,12 @@ function loop(){
     ctx.fillRect(pipeX, -100, PIPE_WIDTH, pipeY)
     ctx.fillRect(pipeX, pipeY + PIPE_GAP, PIPE_WIDTH, canvas.height - pipeY)
 
-    if(collisionCheck()) {
+    if (collisionCheck()) {
         endGame()
         return
     }
     pipeX -= 1.5
-    if(pipeX < -50){
+    if (pipeX < -50){
         pipeX = 400
         pipeY = Math.random() * (canvas.height - PIPE_GAP) + PIPE_WIDTH
     }
