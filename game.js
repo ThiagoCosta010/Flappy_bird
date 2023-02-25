@@ -81,7 +81,6 @@ function collisionCheck(){
         return true
     }
     return false
-
 }
 function hideEndMenu(){
     document.getElementById('end-menu').style.display = 'none'
