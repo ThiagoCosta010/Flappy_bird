@@ -106,15 +106,13 @@ function showEndMenu() {
     document.getElementById('best-score').innerHTML = highScore
 }
 function resetGame() {
-    birdX = 50;
-    birdY = 50;
-    birdVelocity = 0;
-    birdAcceleration = 0.1;
-
-    pipeX = 400;
-    pipeY = canvas.height - 200;
-
-    score = 0;
+    birdX = 50
+    birdY = 50
+    birdVelocity = 0
+    birdAcceleration = 0.1
+    pipeX = 400
+    pipeY = canvas.height - 200
+    score = 0
     scoreDiv.innerHTML = 0
 }
 function endGame() {
