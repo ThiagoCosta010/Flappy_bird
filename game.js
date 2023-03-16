@@ -128,7 +128,7 @@ function loop() {
     ctx.fillStyle = '#333'
     ctx.fillRect(pipeX, -100, PIPE_WIDTH, pipeY)
     ctx.fillRect(pipeX, pipeY + PIPE_GAP, PIPE_WIDTH, canvas.height - pipeY)
-    
+
     // now we would need to add an collision check to display our end-menu
     // and end the game
     // the collisionCheck will return us true if we have a collision
