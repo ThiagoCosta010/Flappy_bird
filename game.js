@@ -47,7 +47,7 @@ function increaseScore() {
             !scored) {
         score++
         scoreDiv.innerHTML = score
-        scored = true
+        scored = true            
     }
     // reset the flag, if bird passes the pipes
     if (birdX < pipeX + PIPE_WIDTH) {
@@ -128,7 +128,7 @@ function loop() {
     ctx.fillStyle = '#333'
     ctx.fillRect(pipeX, -100, PIPE_WIDTH, pipeY)
     ctx.fillRect(pipeX, pipeY + PIPE_GAP, PIPE_WIDTH, canvas.height - pipeY)
-    
+
     // now we would need to add an collision check to display our end-menu
     // and end the game
     // the collisionCheck will return us true if we have a collision
@@ -141,7 +141,7 @@ function loop() {
     // forgot to move the pipes
     pipeX -= 1.5
     // if the pipe moves out of the frame we need to reset the pipe
-    if (pipeX < -50){
+    if (pipeX < -50) {
         pipeX = 400
         pipeY = Math.random() * (canvas.height - PIPE_GAP) + PIPE_WIDTH
     }
