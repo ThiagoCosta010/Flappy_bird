@@ -47,7 +47,7 @@ function increaseScore() {
             !scored) {
         score++
         scoreDiv.innerHTML = score
-        scored = true            
+        scored = true
     }
     // reset the flag, if bird passes the pipes
     if (birdX < pipeX + PIPE_WIDTH) {
@@ -123,7 +123,7 @@ function loop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     // Draw Flappy Bird
     ctx.drawImage(flappyImg, birdX, birdY)
-
+   
     // Draw Pipes
     ctx.fillStyle = '#333'
     ctx.fillRect(pipeX, -100, PIPE_WIDTH, pipeY)
@@ -148,7 +148,7 @@ function loop() {
     // apply gravity to the bird and let it move
     birdVelocity += birdAcceleration
     birdY += birdVelocity
-
+    
     increaseScore()
     requestAnimationFrame(loop)
 }
