@@ -28,7 +28,7 @@ let scored = false
 
 // lets us control the bird with the space key
 document.body.onkeyup = function(e) {
-    if (e.code == 'Space'){
+    if (e.code == 'Space') {
         birdVelocity = FLAP_SPEED
     }
 }
@@ -137,7 +137,7 @@ function loop() {
         endGame()
         return
     }
-    
+
     // forgot to move the pipes
     pipeX -= 1.5
     // if the pipe moves out of the frame we need to reset the pipe
