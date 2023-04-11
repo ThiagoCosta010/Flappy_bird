@@ -123,7 +123,7 @@ function loop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     // Draw Flappy Bird
     ctx.drawImage(flappyImg, birdX, birdY)
-    
+
     // Draw Pipes
     ctx.fillStyle = '#333'
     ctx.fillRect(pipeX, -100, PIPE_WIDTH, pipeY)
@@ -137,7 +137,7 @@ function loop() {
         endGame()
         return
     }
-    
+
     // forgot to move the pipes
     pipeX -= 1.5
     // if the pipe moves out of the frame we need to reset the pipe
