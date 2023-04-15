@@ -137,7 +137,7 @@ function loop() {
         endGame()
         return
     }
-
+    
     // forgot to move the pipes
     pipeX -= 1.5
     // if the pipe moves out of the frame we need to reset the pipe
