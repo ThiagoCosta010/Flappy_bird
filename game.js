@@ -148,7 +148,7 @@ function loop() {
     // apply gravity to the bird and let it move
     birdVelocity += birdAcceleration
     birdY += birdVelocity
-
+    
     increaseScore()
     requestAnimationFrame(loop)
 }
